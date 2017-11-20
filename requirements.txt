@@ -1,3 +1,2 @@
 minemeld-core>=0.9.44
 requests
-json
