@@ -1,0 +1,17 @@
+{
+    "version": "0.2",
+    "name": "incapsula-miner",
+    "author": "Nasir Bilal",
+    "author_email": "nbilal@paloaltonetworks.com",
+    "description": "Sample MineMeld node extension for mining Incapsula API",
+    "entry_points": {
+        "minemeld_nodes": {
+            "incapsulaminer.IPv4": "incapsulaminer.node:IPv4",
+            "incapsulaminer.IPv4": "incapsulaminer.node:IPv6"
+        },
+        "minemeld_prototypes": {
+            "incapsulaminer.prototypes": "incapsulaminer:prototypes"
+        }
+    },
+    "manifest_version": 0
+}
