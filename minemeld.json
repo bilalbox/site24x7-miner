@@ -7,7 +7,7 @@
     "entry_points": {
         "minemeld_nodes": {
             "incapsulaminer.IPv4": "incapsulaminer.node:IPv4",
-            "incapsulaminer.IPv4": "incapsulaminer.node:IPv6"
+            "incapsulaminer.IPv6": "incapsulaminer.node:IPv6"
         },
         "minemeld_prototypes": {
             "incapsulaminer.prototypes": "incapsulaminer:prototypes"

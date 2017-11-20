@@ -8,7 +8,7 @@ prototypes:
     development_status: EXPERIMENTAL
     node_type: miner
     description: Miner for public IPv4 addresses of Incapsula
-    class: minemeld.ft.incapsula.IPv4
+    class: incapsulaminer.IPv4
     indicator_types:
         - IPv4
     tags:
@@ -30,7 +30,7 @@ prototypes:
     development_status: EXPERIMENTAL
     node_type: miner
     description: Miner for public IPv6 addresses of Incapsula
-    class: minemeld.ft.incapsula.IPv6
+    class: incapsulaminer.IPv6
     indicator_types:
         - IPv6
     tags:
