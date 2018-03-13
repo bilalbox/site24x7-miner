@@ -45,7 +45,7 @@ class IPv4(BasePollerFT):
 
         # parse the results into a list
         j = json.loads(r.text)['LocationDetails']
-        return iter(loc['external_ip'] for loc in j)
+        return iter(l.rstrip(',') for loc in j for l in loc['external_ip'].split())
 
 class IPv6(BasePollerFT):
     def configure(self):
@@ -84,4 +84,4 @@ class IPv6(BasePollerFT):
 
         # parse the results into a list
         j = json.loads(r.text)['LocationDetails']
-        return iter(loc['IPv6_Address_External'] for loc in j)
+        return iter(l.rstrip(',') for loc in j for l in loc['IPv6_Address_External'].split())
