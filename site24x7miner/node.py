@@ -34,15 +34,7 @@ class IPv4(BasePollerFT):
     def _build_iterator(self, now):
         # called at every polling interval
         # here you should retrieve and return the list of items
-        rkwargs = dict(
-            stream=False,
-            verify=self.verify_cert,
-            timeout=self.polling_timeout,
-        )
-
-        r = requests.get(
-            self.url,
-        )
+        r = requests.get(self.url)
 
         try:
             r.raise_for_status()
@@ -81,16 +73,7 @@ class IPv6(BasePollerFT):
     def _build_iterator(self, now):
         # called at every polling interval
         # here you should retrieve and return the list of items
-        rkwargs = dict(
-            stream=False,
-            verify=self.verify_cert,
-            timeout=self.polling_timeout,
-            data=[('resp_format','json'),]
-        )
-
-        r = requests.get(
-            self.url,
-        )
+        r = requests.get(self.url)
 
         try:
             r.raise_for_status()
@@ -101,4 +84,4 @@ class IPv6(BasePollerFT):
 
         # parse the results into a list
         j = json.loads(r.text)['LocationDetails']
-        return iter(loc['external_ip'] for loc in j)
+        return iter(loc['IPv6_Address_External'] for loc in j)

@@ -1,5 +1,5 @@
 # site24x7-miner
-MineMeld Miner for Incapsula public IPs implemented as an extension
+MineMeld Miner for gathering Site24x7 web monitoring public IPs, implemented as an extension
 
 ## How it works
 

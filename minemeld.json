@@ -6,11 +6,11 @@
     "description": "MineMeld node extension for mining Site24x7 Monitoring Service IPs",
     "entry_points": {
         "minemeld_nodes": {
-            "incapsulaminer.IPv4": "site24x7miner.node:IPv4",
-            "incapsulaminer.IPv6": "site24x7miner.node:IPv6"
+            "site24x7miner.IPv4": "site24x7miner.node:IPv4",
+            "site24x7miner.IPv6": "site24x7miner.node:IPv6"
         },
         "minemeld_prototypes": {
-            "incapsulaminer.prototypes": "site24x7miner:prototypes"
+            "site24x7miner.prototypes": "site24x7miner:prototypes"
         }
     },
     "manifest_version": 0
