@@ -1,21 +1,21 @@
 description: >
-    Incapsula Cloud WAF Public IP Ranges
-url: https://www.incapsula.com/
+    Public IP Ranges for Site24x7 External Web Monitoring Solutions
+url: https://www.site24x7.com
 
 prototypes:
   IPv4:
     author: Nasir Bilal (paloaltonetworks.com)
     development_status: EXPERIMENTAL
     node_type: miner
-    description: Miner for public IPv4 addresses of Incapsula
-    class: incapsulaminer.IPv4
+    description: Miner for public IPv4 addresses of Site24x7
+    class: 24x7miner.IPv4
     indicator_types:
         - IPv4
     tags:
         - ConfidenceHigh
         - ShareLevelGreen
     config:
-      source_name: Incapsula.IPv4
+      source_name: Site24x7.IPv4
       age_out:
         sudden_death: true
         default: null
@@ -23,21 +23,21 @@ prototypes:
           type: IPv4
           share_level: green
           confidence: 100
-      url: https://my.incapsula.com/api/integration/v1/ips
+      url: https://www.site24x7.com/multi-location-web-site-monitoring.html
 
   IPv6:
     author: Nasir Bilal (paloaltonetworks.com)
     development_status: EXPERIMENTAL
     node_type: miner
-    description: Miner for public IPv6 addresses of Incapsula
-    class: incapsulaminer.IPv6
+    description: Miner for public IPv6 addresses of Site24x7
+    class: site24x7miner.IPv6
     indicator_types:
         - IPv6
     tags:
         - ConfidenceHigh
         - ShareLevelGreen
     config:
-      source_name: Incapsula.IPv6
+      source_name: Site24x7.IPv6
       age_out:
         sudden_death: true
         default: null
@@ -45,4 +45,4 @@ prototypes:
           type: IPv6
           share_level: green
           confidence: 100
-      url: https://my.incapsula.com/api/integration/v1/ips
+      url: https://www.site24x7.com/multi-location-web-site-monitoring.html

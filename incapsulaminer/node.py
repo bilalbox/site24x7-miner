@@ -14,7 +14,7 @@ class IPv4(BasePollerFT):
 
         self.polling_timeout = self.config.get('polling_timeout', 20)
         self.verify_cert = self.config.get('verify_cert', False)
-        self.url = 'https://my.incapsula.com/api/integration/v1/ips'
+        self.url = 'https://creatorexport.zoho.com/site24x7/location-manager/json/IP_Address_View/C80EnP71mW2fDd60GaDgnPbVwMS8AGmP85vrN27EZ1CnCjPwnm0zPB5EX4Ct4q9n3rUnUgYwgwX0BW3KFtxnBqHt60Sz1Pgntgru/'
 
     def _process_item(self, item):
         # called on each item returned by _build_iterator
@@ -38,12 +38,10 @@ class IPv4(BasePollerFT):
             stream=False,
             verify=self.verify_cert,
             timeout=self.polling_timeout,
-            data=[('resp_format','json'),]
         )
 
-        r = requests.post(
+        r = requests.get(
             self.url,
-            **rkwargs
         )
 
         try:
@@ -54,7 +52,8 @@ class IPv4(BasePollerFT):
             raise
 
         # parse the results into a list
-        return iter(json.loads(r.text)['ipRanges'])
+        j = json.loads(r.text)['LocationDetails']
+        return iter(loc['external_ip'] for loc in j)
 
 class IPv6(BasePollerFT):
     def configure(self):
@@ -62,7 +61,7 @@ class IPv6(BasePollerFT):
 
         self.polling_timeout = self.config.get('polling_timeout', 20)
         self.verify_cert = self.config.get('verify_cert', False)
-        self.url = 'https://my.incapsula.com/api/integration/v1/ips'
+        self.url = 'https://creatorexport.zoho.com/site24x7/location-manager/json/IP_Address_View/C80EnP71mW2fDd60GaDgnPbVwMS8AGmP85vrN27EZ1CnCjPwnm0zPB5EX4Ct4q9n3rUnUgYwgwX0BW3KFtxnBqHt60Sz1Pgntgru/'
 
     def _process_item(self, item):
         # called on each item returned by _build_iterator
@@ -89,9 +88,8 @@ class IPv6(BasePollerFT):
             data=[('resp_format','json'),]
         )
 
-        r = requests.post(
+        r = requests.get(
             self.url,
-            **rkwargs
         )
 
         try:
@@ -102,4 +100,5 @@ class IPv6(BasePollerFT):
             raise
 
         # parse the results into a list
-        return iter(json.loads(r.text)['ipv6Ranges'])
+        j = json.loads(r.text)['LocationDetails']
+        return iter(loc['external_ip'] for loc in j)
