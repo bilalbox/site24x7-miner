@@ -8,7 +8,7 @@ prototypes:
     development_status: EXPERIMENTAL
     node_type: miner
     description: Miner for public IPv4 addresses of Site24x7
-    class: 24x7miner.IPv4
+    class: site24x7miner.IPv4
     indicator_types:
         - IPv4
     tags:
